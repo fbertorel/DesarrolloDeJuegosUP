@@ -56,7 +56,7 @@ namespace Project1
             // TODO: Add your drawing code here
 
             spriteBatch.Begin();
-            spriteBatch.Draw(yoda, new Vector2(0,0), Color.Red);      //con esto dibujo el yoda. El vector es 0,0 es abajo a la izq.
+            spriteBatch.Draw(yoda, new Rectangle(0,0, _graphics.GraphicsDevice.Viewport.Width, _graphics.GraphicsDevice.Viewport.Height), Color.White);      //con esto dibujo el yoda. El vector es 0,0 es abajo a la izq.
 
             spriteBatch.End();
 
