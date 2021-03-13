@@ -4,28 +4,37 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Project1
 {
-    public class Game1 : Game
+    public class Game1 : Game   //Game1 hereda de Game con :
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        private GraphicsDeviceManager _graphics;        //Game y GraphicsDeviceManager se encargan de renderizar
+        private SpriteBatch spriteBatch;
+        private int score;
+        private int maxScore;
 
-        public Game1()
+        private Texture2D yoda;
+
+        public Game1()          //Constructor
         {
             _graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
-            IsMouseVisible = true;
+            this.Content.RootDirectory = "Content";          //Define donde estara el contenido
+            this.IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            this.score = 0;
+            this.maxScore = 0;
 
-            base.Initialize();
+            base.Initialize();                              //base es como usar super en java. 
         }
 
-        protected override void LoadContent()
+        protected override void LoadContent()               //loading de un juego
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            spriteBatch = new SpriteBatch(GraphicsDevice);     //se usa para ayudar a hacer los dibujos (que se hacen dentro de Draw)
+
+            yoda = Content.Load<Texture2D>("dark yoda");        //cargue la imagen en el objeto
+
 
             // TODO: use this.Content to load your game content here
         }
@@ -45,6 +54,11 @@ namespace Project1
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
+            spriteBatch.Begin();
+            spriteBatch.Draw(yoda, new Vector2(0,0), Color.White);      //con esto dibujo el yoda. El vector es 0,0 es abajo a la izq.
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
