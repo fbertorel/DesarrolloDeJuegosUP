@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/fbert/Desktop/Facu/2021/Desarrollo para juegos/Proyectos/Project2/Content/10.png","C:/Users/fbert/Desktop/Facu/2021/Desarrollo para juegos/Proyectos/Project2/Content/bin/Windows/10.xnb","TextureProcessor","Texture2DContent",16737,1000085,0.2432392
+"C:/Users/fbert/Desktop/Facu/2021/Desarrollo para juegos/Proyectos/Project2/Content/dark yoda.jpg","C:/Users/fbert/Desktop/Facu/2021/Desarrollo para juegos/Proyectos/Project2/Content/bin/Windows/dark yoda.xnb","TextureProcessor","Texture2DContent",156158,4379285,0.2068773
+"C:/Users/fbert/Desktop/Facu/2021/Desarrollo para juegos/Proyectos/Project2/Content/textoNormal.spritefont","C:/Users/fbert/Desktop/Facu/2021/Desarrollo para juegos/Proyectos/Project2/Content/bin/Windows/textoNormal.xnb","FontDescriptionProcessor","SpriteFontContent",2008,21538,0.2996453
