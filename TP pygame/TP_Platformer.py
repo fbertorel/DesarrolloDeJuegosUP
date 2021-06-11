@@ -135,47 +135,7 @@ class Player(pygame.sprite.Sprite):
             self.score = 10 + score
         if hits_stars1:
             self.score = 10 + score
-        
-def cambioNivel(bg1, bg2, sprites, plataforma, plataforma_spiked, score):
-    if player.current_level > 1:
-        print("El juego solo tiene 2 niveles. Termina")
-        pygame.quit()
-    player.pos = pygame.math.Vector2((10, 900))
-    inGame = True
-    while inGame:
 
-        # Manejo de eventos
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                #inGame = False
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    inGame = False
-                if event.key == pygame.K_UP:
-                    player.jump(plataforma)
-                    
-        for sprite in sprites:              #sin este for la imagen al saltar se repite constantemente
-            display_surface.blit(sprite.image, sprite.rect)
-            sprite.move()
-        
-        display_surface.blit(bg1, (0, 0))
-        display_surface.blit(bg2, (0, -600))
-        star.update()
-        star1.update()
-        
-        player.update(plataforma, plataforma_spiked, player.score)
-
-        for sprite in sprites:
-            display_surface.blit(sprite.image, sprite.rect)
-            sprite.move()
-
-        text = myfont.render("Score {0}".format(player.score), 1, (0,0,0))
-        display_surface.blit(text, (15,20))
-    
-        pygame.display.update()
-
-        framePerSec.tick(fps)
 
 class Star(pygame.sprite.Sprite):
     def __init__(self, posx, posy):
@@ -227,6 +187,49 @@ class PlataformaSpike(pygame.sprite.Sprite):
 
     def move(self):
         pass
+        
+def cambioNivel(bg1, bg2, sprites, plataforma, plataforma_spiked, score):
+    if player.current_level > 1:
+        print("El juego solo tiene 2 niveles. Termina")
+        print("El score del jugador fue: ",player.score)
+        pygame.quit()
+    player.pos = pygame.math.Vector2((10, 900))
+    inGame = True
+    while inGame:
+
+        # Manejo de eventos
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                #inGame = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    inGame = False
+                if event.key == pygame.K_UP:
+                    player.jump(plataforma)
+                    
+        for sprite in sprites:              #sin este for la imagen al saltar se repite constantemente
+            display_surface.blit(sprite.image, sprite.rect)
+            sprite.move()
+        
+        display_surface.blit(bg1, (0, 0))
+        display_surface.blit(bg2, (0, -600))
+        star.update()
+        star1.update()
+        
+        player.update(plataforma, plataforma_spiked, player.score)
+
+        for sprite in sprites:
+            display_surface.blit(sprite.image, sprite.rect)
+            sprite.move()
+
+        text = myfont.render("Score {0}".format(player.score), 1, (0,0,0))
+        display_surface.blit(text, (15,20))
+    
+        pygame.display.update()
+
+        framePerSec.tick(fps)
+
 
 #Jugador
 player = Player(player_image)
